@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乐淘</title>
+    <script src="../bootstrap-3.3.5-dist/js/jquery.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        body{
+            height: 2500px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a href="http://www.togogo.net" class="navbar-brand">广州腾科</a>
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">企业合作</a></li>
+            <li class="dropdown">
+                <a id="showclass" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    课程列表
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="showclass">
+                    <li><a href="#">Android</a></li>
+                    <li><a href="#">Oracle</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">JavaEE</a></li>
+                    <li><a href="#">H5</a></li>
+                </ul>
+            </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input class="form-control" id="mysearch" placeholder="搜索...">
+            </div>
+            <button class="btn btn-info" id="btn_search">搜索课程</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">
+                    <span class="glyphicon glyphicon-user"><span  onclick="showalert()">注册</span>
+                    </span>
+                </a>
+            </li>
+            <li><a href="#"><span id="dl" class="glyphicon glyphicon-log-in" onclick="myclick2()" >登陆</span></a> </li>
+        </ul>
+    </nav>
+    <div class="panel-body" style="width: 300px; float: left " >
+        <div class="list-group">
+            <a href="#" class="list-group-item active">ios<span class="badge">10</span></a>
+            <a href="#" class="list-group-item">java <span class="badge">10</span></a>
+            <a href="#" class="list-group-item">python </a>
+            <a href="#" class="list-group-item">c</a>
+            <a href="#" class="list-group-item">c++</a>
+            <a href="#" class="list-group-item">c#</a>
+            <a href="#" class="list-group-item">php</a>
+            <a href="#" class="list-group-item">.net</a>
+            <a href="#" class="list-group-item">h5</a>
+            <a href="#" class="list-group-item">androd</a>
+            <a href="#" class="list-group-item">R</a>
+            <a href="#" class="list-group-item">Linux</a>
+            <a href="#" class="list-group-item">Sql</a>
+
+        </div>
+    </div>
+    <div class="panel panel-default" style="width: 1000px; float: left;margin-top: 20px">
+        <div class="panel-heading">
+            <center>腾科十周年庆典</center>
+        </div>
+        <div class="panel-body">
+              <img src="../img/4{G({XPA)989FK}[06N_{C6.png ">
+        </div>
+        <div class="panel-footer">
+            <center><p>腾科优惠持续来袭，课程升级让你意想不到的惊喜！</p></center>
+        </div>
+    </div>
+    <div id="div01" class="alert alert-success" style="display: none;margin-top: -20px;margin-left: 600px; width: 600px ;height: 50px ;position: absolute  ;z-index: 3 ;text-align: center ">注册成功！</div>
+    <div id="jd" style="position: absolute ;z-index: 4;top: 500px;left: 500px" ></div>
+    <div class="mydiv02 alert alert-danger col-lg-6"id="mydiv02" style="visibility:hidden;z-index: 3;text-align: center;position: absolute ;top: 50px;left: 500px">
+        <p>登陆失败</p>
+    </div>
+    <div class="progress progress-striped  active col-lg-8 col-lg-offset-1" style="visibility: hidden;position: absolute ;top: 60px;left: 250px">
+        <div id="prog" class="progress-bar progress-bar-success"aria-valuemin="0" aria-valuemax="100" style="width: 0%" >
+        </div>
+    </div>
+    <script>
+        //ready方法最主要的特点就是当前页面中的所有关于DOM的内容加载完成之后，才会运行里面的方法
+        function showalert() {
+            $("#div01").css("display","block");
+            setTimeout(function () {
+                $("#div01").css("display","none");
+            },1500);
+        }
+        function myclick2(){
+                var a=0;
+                var task=setInterval(function(){
+                    if(a<=100){
+                        a=a+10;
+                        $("#prog").css("visibility","visible");
+                        $("#prog").css("width", a+ "%");
+                    }else{
+                        clearInterval(task);
+                    }
+                    setTimeout(function(){
+                        $("#prog").css("visibility","hidden");
+                        $("#mydiv02").css("visibility","visible");
+                        setTimeout(function(){
+                            $("#mydiv02").css("visibility","hidden");
+                        },2000)
+                    },2000);
+                },10);
+            $("#prog").progressbar({
+                value: a ,
+                width : 400,
+                height : 30,
+                text : '{value}%',
+            });
+            }
+    </script>
+</div>
+</body>
+</html>
